@@ -1,65 +1,54 @@
-import React from 'react'
-import CartItem from './CartItem'
+import React from "react";
+import CartItem from "./CartItem";
+import CartContext from "../Store/Cart-Context";
+import { useContext } from "react";
+import Modal from "../UI/Modal";
 
-const cartElements = [
-
-    {
-    
-    title: 'Colors',
-    
-    price: 100,
-    
-    imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%201.png',
-    
-    quantity: 2,
-    
-    },
-    
-    {
-    
-    title: 'Black and white Colors',
-    
-    price: 50,
-    
-    imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%202.png',
-    
-    quantity: 3,
-    
-    },
-    
-    {
-    
-    title: 'Yellow and Black Colors',
-    
-    price: 70,
-    
-    imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%203.png',
-    
-    quantity: 1,
-    
+const Cart = (props) => {
+  let total = 0;
+  const cartcntx = useContext(CartContext);
+  
+ const length= cartcntx.items.length
+   const purchaseItemHandler = (item) => {
+    if (Number(item.quantity) < 1) {
+      console.log(item.quantity);
+      alert("You have Nothing in Cart , Add some products to purchase !");
+    } else {
+      console.log(item.quantity);
+      alert("Thanks for purchase");
     }
-    
-    ]
+  };
+  
+  cartcntx.items.forEach((item) => {
+    total = total + Number(item.price) * Number(item.quantity);
+  });
+  total = `$ ${total.toFixed(2)}`;
 
- const Cart = (props) => 
-{
-    const cartItems= cartElements.map((item)=>(
-        <CartItem key={item.id}
-        title={item.title}
-        price={item.price}
-        url={item.imageUrl}
-        quantity={item.quantity}
-        />
+  const cartItems = cartcntx.items.map((item) => (
+    <CartItem
+      key={item.id}
+      title={item.title}
+      id={item.id}
+      price={item.price}
+      url={item.imageUrl}
+      quantity={item.quantity}
+       />
+  ));
 
-
-    ))
-    
   return (
-    <div>
+    <Modal onClose={props.onClose}>
+      <div>
+        <button onClick={props.onClose}>Close</button>
+      </div>
       {cartItems}
-      <button onClick={props.onClose}>Close</button>
-    </div>
-  )
-}
+      <div>
+        <span>Total Amount</span>
+        {total}
+      </div>
+
+      {length && <button onClick={purchaseItemHandler}>Purchase</button>}
+    </Modal>
+  );
+};
 
 export default Cart;

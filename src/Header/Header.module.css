@@ -10,7 +10,7 @@
     font-size: xlarge;
     font-weight: 500;
     color: white;
-    position: inherit;
+    position: fixed;
     /* top: 0;
     left: 0; */
     width: 100%;
