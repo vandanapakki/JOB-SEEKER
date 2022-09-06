@@ -8,9 +8,11 @@ import CartContext from '../Store/Cart-Context'
 
 const reducer=(state,action)=>{
   if(action.type==='INC'){
+    
     return state+1
   }
   if(action.type==='DEC'){
+    
     return state-1
   }
 }
@@ -28,13 +30,13 @@ export default function CartItem(props) {
     cntxt.removeItem(props.id)
   }
 
-  const incrementHandler=()=>{
+  const decrementHandler=()=>{
+    
     dispatch({type:"DEC"})
   }
 
   
-  
-  return (
+    return (
     
         
         
@@ -47,7 +49,7 @@ export default function CartItem(props) {
                 <span className={classes.price}>Price: {props.price}</span>        
                 
           </div>  
-                  <button onClick={incrementHandler}>-</button>
+                  <button onClick={decrementHandler}>-</button>
                   <span>{state}</span>
                   <button onClick={()=>dispatch({type:"INC"})}>+</button>
               <div className={classes.actions}>

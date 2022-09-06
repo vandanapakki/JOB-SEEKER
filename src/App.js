@@ -8,6 +8,8 @@ import Cart from './Cart/Cart';
 import CartProvider from './Store/Cart-Provider';
 import { Route } from 'react-router-dom';
 import About from './Pages/About';
+import Home from './Pages/Home';
+import HomeHeader from './Pages/HomeHeader';
 
 
 
@@ -29,13 +31,22 @@ function App() {
     <CartProvider>  
       
           <Header onShowCart={showCartHandler}/>
+            
+            <Route path='/store'>
             <Header2/>
             {showCart && <Cart onClose={hideCartHandler}/>}
+
              <Product/>
-            <Footer/>  
+            </Route>        
             <Route path='/about' >
+            <Header2/>
              <About/>
-            </Route>     
+            </Route>  
+              <Route path='/home'>
+                <HomeHeader/>
+              <Home/>
+              </Route> 
+            <Footer/>   
              
        </CartProvider>
   );

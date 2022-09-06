@@ -2,6 +2,8 @@ import React from "react";
 import ProductItem from "./ProductItems/ProductItem";
 import classes from './Product.module.css';
 
+
+
   const productsArr = [
     
     {
@@ -67,10 +69,10 @@ import classes from './Product.module.css';
         quantity={ele.quantity}/>
     )
   return (
-    <div className={classes.newsbox}>
+    <div>
       <div className={classes.product}>
     <h1> Music </h1>
-</div>
+    </div>
       <ul>
           {productItem}
        </ul>

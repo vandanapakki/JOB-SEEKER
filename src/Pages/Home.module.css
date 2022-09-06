@@ -1,0 +1,21 @@
+.content{
+    text-align: center;
+    width: 700px;
+    margin-left: 30%;
+}
+.list{
+    list-style-type: none;
+    
+}
+.items{
+    
+    font-size: 20px;
+    display: flex;
+    justify-content:space-between;
+    padding: 10px;
+
+}
+.items span{
+    border-bottom: 5px;
+    border-color: black;
+}

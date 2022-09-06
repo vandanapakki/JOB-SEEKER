@@ -10,14 +10,15 @@ const Cart = (props) => {
   
  const length= cartcntx.items.length
    const purchaseItemHandler = (item) => {
-    if (Number(item.quantity) < 1) {
-      console.log(item.quantity);
-      alert("You have Nothing in Cart , Add some products to purchase !");
+    if (item.quantity < 1) {
+         alert("You have Nothing in Cart , Add some products to purchase !");
     } else {
-      console.log(item.quantity);
-      alert("Thanks for purchase");
+       
+        alert("Thanks for purchase");
     }
   };
+
+  
   
   cartcntx.items.forEach((item) => {
     total = total + Number(item.price) * Number(item.quantity);
