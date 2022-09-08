@@ -61,22 +61,20 @@ import classes from './Product.module.css';
   const Product = ()=>{
     const productItem=productsArr.map((ele)=>
         <ProductItem 
-        key={ele.key}
-        id={ele.id}
+        key={ele.id}
+        // id={ele.id}
         title={ele.title}
         price={ele.price}
         url={ele.imageUrl}
         quantity={ele.quantity}/>
     )
   return (
-    <div>
-      <div className={classes.product}>
-    <h1> Music </h1>
-    </div>
+    <section className={classes.product}>
+       {/* <h1> Music </h1> */}
       <ul>
           {productItem}
-       </ul>
-    </div>
+      </ul>
+    </section>
   )
 
   

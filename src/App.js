@@ -10,6 +10,7 @@ import { Route } from 'react-router-dom';
 import About from './Pages/About';
 import Home from './Pages/Home';
 import HomeHeader from './Pages/HomeHeader';
+import ContactUs from './Pages/ContactUs';
 
 
 
@@ -46,6 +47,10 @@ function App() {
                 <HomeHeader/>
               <Home/>
               </Route> 
+              <Route path='/contact' >
+            <Header2/>
+             <ContactUs/>
+            </Route> 
             <Footer/>   
              
        </CartProvider>
