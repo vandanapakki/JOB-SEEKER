@@ -1,4 +1,5 @@
 import React from "react";
+// import { Link } from "react-router-dom";
 import ProductItem from "./ProductItems/ProductItem";
 import classes from './Product.module.css';
 
@@ -62,7 +63,7 @@ import classes from './Product.module.css';
     const productItem=productsArr.map((ele)=>
         <ProductItem 
         key={ele.id}
-        // id={ele.id}
+        id={ele.id}
         title={ele.title}
         price={ele.price}
         url={ele.imageUrl}
@@ -72,7 +73,7 @@ import classes from './Product.module.css';
     <section className={classes.product}>
        {/* <h1> Music </h1> */}
       <ul>
-          {productItem}
+         {productItem} 
       </ul>
     </section>
   )

@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import { Link } from 'react-router-dom';
 import CartContext from '../../Store/Cart-Context';
 import classes from './ProductItem.module.css'
 
@@ -14,7 +15,7 @@ export default function ProductItem(props) {
       key: props.key,
       title: props.title,
       price:props.price,
-      // id:props.id,
+      id:props.id,
       url:props.url,
       quantity:props.quantity
       
@@ -28,10 +29,12 @@ export default function ProductItem(props) {
 
     <form onSubmit={addItemToCart}>    
     <div className={classes.product}>
+      <Link to='/productdetails/:productName'>
       <h2>{props.title}</h2>  
       <div className={classes.product}>
            <img src={props.url} alt='img'></img>
        </div>
+       </Link>
       <div className={classes['product-price']}>
         ${props.price}
       </div>         

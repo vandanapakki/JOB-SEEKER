@@ -6,11 +6,12 @@ import Footer from './Footer/Footer';
 import Header2 from './Header/Header2';
 import Cart from './Cart/Cart';
 import CartProvider from './Store/Cart-Provider';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import About from './Pages/About';
 import Home from './Pages/Home';
 import HomeHeader from './Pages/HomeHeader';
 import ContactUs from './Pages/ContactUs';
+import ProductDetails from './Pages/ProductDetails';
 
 
 
@@ -32,8 +33,8 @@ function App() {
     <CartProvider>  
       
           <Header onShowCart={showCartHandler}/>
-            
-            <Route path='/store'>
+           <Switch> 
+            <Route path='/store' exact>
             <Header2/>
             {showCart && <Cart onClose={hideCartHandler}/>}
 
@@ -51,6 +52,10 @@ function App() {
             <Header2/>
              <ContactUs/>
             </Route> 
+            <Route path='/productdetails/:productName'>
+              <ProductDetails/>
+            </Route>
+            </Switch>
             <Footer/>   
              
        </CartProvider>

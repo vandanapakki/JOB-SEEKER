@@ -1,0 +1,27 @@
+import React from "react";
+import { useParams } from "react-router-dom";
+
+function ProductDetails() {
+  const { params } = useParams();
+
+  return (
+    <div>
+      <h1>{params}Product Details</h1>
+      <img
+        src="https://images.pexels.com/photos/1616403/pexels-photo-1616403.jpeg?auto=compress&cs=tinysrgb&w=600"
+        alt="img1"
+        width="10%"
+      />
+      <br/>
+      <img
+        src="https://images.pexels.com/photos/1191710/pexels-photo-1191710.jpeg?auto=compress&cs=tinysrgb&w=600"
+        alt="img2"
+        width="10%"
+      />
+      <h2>Review</h2>
+      <p>Lorem ipsum carrots enhanced rebates. Excellent sayings of a man of sorrows, hates no prosecutors will unfold in the enduring of which were born in it? Often leads smallest mistake some pain main responsibilities are to stand for the right builder of pleasure, accepted explain up to now. , The things we are accusing of these in the explication of the truth receives from the flattery of her will never be the trouble and they are refused to the pleasures and the pleasures of the pain, explain the treatment of excepturi of the blessed sufferings. I never said will unfold in him receives at another time he may please the one that those works, we are less than they, this refused to the pleasures of deleniti?</p>
+    </div>
+  );
+}
+
+export default ProductDetails;
