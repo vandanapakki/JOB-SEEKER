@@ -12,6 +12,7 @@ import Home from './Pages/Home';
 import HomeHeader from './Pages/HomeHeader';
 import ContactUs from './Pages/ContactUs';
 import ProductDetails from './Pages/ProductDetails';
+import Login from './Pages/Login';
 
 
 
@@ -44,7 +45,7 @@ function App() {
             <Header2/>
              <About/>
             </Route>  
-              <Route path='/home'>
+              <Route path='/home' exact>
                 <HomeHeader/>
               <Home/>
               </Route> 
@@ -52,6 +53,10 @@ function App() {
             <Header2/>
              <ContactUs/>
             </Route> 
+            <Route path='/login'>
+            <Header2/>
+            <Login/>
+            </Route>
             <Route path='/productdetails/:productName'>
               <ProductDetails/>
             </Route>

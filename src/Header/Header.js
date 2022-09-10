@@ -15,7 +15,9 @@ function Header(props) {
                <NavLink activeClassName={classes.active} to='/home'> Home </NavLink>            
                <NavLink activeClassName={classes.active} to='/store'>Store</NavLink> 
                <NavLink activeClassName={classes.active} to='/about'>About</NavLink> 
+               <NavLink activeClassName={classes.active} to='/login'>Login</NavLink>
                <NavLink activeClassName={classes.active} to='/contact'>Contact</NavLink>
+               
            <div className={classes.shoppingCart}>
              <HeaderCartButton onClick={props.onShowCart}/>
            </div>

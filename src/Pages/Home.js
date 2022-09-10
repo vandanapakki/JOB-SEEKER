@@ -48,8 +48,8 @@ function Home() {
                 <span>{user.Place}</span>
                 <span>{user.Theatre}</span>
                 <button>BUY TICKET</button>
-              </li>
-          ))}             
+               </li>
+              ))}             
         </ul>
         </section>
       
