@@ -1,5 +1,7 @@
 import React from 'react'
 import { useRef } from 'react'
+import Header from '../Header/Header';
+import Header2 from '../Header/Header2';
 import classes from './ContactUs.module.css'
 
 function ContactUs() {
@@ -25,12 +27,16 @@ function ContactUs() {
                 "Content-Type":"application/json"
             }
         })
+        console.log(response)
         const data= await response.json();
         console.log(data)
 
     }
     
   return (
+    <>
+    <Header/>
+    <Header2/>
     <div className={classes.wrapper}>
      <form onSubmit={submitHandler} className={classes.form}>
         <div className={classes.title}>Contact us </div>
@@ -49,7 +55,7 @@ function ContactUs() {
         <button className={classes.submit}>Submit Now</button>
         </form>
     </div>
-
+    </>
   )
 }
 

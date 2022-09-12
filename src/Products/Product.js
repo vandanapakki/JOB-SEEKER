@@ -1,84 +1,74 @@
 import React from "react";
-// import { Link } from "react-router-dom";
 import ProductItem from "./ProductItems/ProductItem";
-import classes from './Product.module.css';
+import classes from "./Product.module.css";
 
+const productsArr = [
+  {
+    id: "1",
 
+    title: "Colors",
 
-  const productsArr = [
-    
-    {
-      id:'1',
+    price: 100,
 
-      title: "Colors",
+    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
 
-      price: 100,
+    quantity: 1,
+  },
 
-      imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
+  {
+    id: "2",
 
-        quantity:1,
-    },
+    title: "Black and white Colors",
 
-    {
-      id:'2',
+    price: 50,
 
-      title: "Black and white Colors",
+    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
+    quantity: 1,
+  },
 
-      price: 50,
+  {
+    id: "3",
 
-      imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
-        quantity:1,
-    },
+    title: "Yellow and Black Colors",
 
-    {
-      id:'3',
+    price: 70,
 
-      title: "Yellow and Black Colors",
+    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
 
-      price: 70,
+    quantity: 1,
+  },
 
-      imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
-        
-        quantity:1,
-      },
+  {
+    id: "4",
 
-    {
-      id:'4',
+    title: "Blue Color",
 
-      title: "Blue Color",
+    price: 100,
 
-      price: 100,
+    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
+    quantity: 1,
+  },
+];
 
-      imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
-        quantity:1,
-    },
-    
-  ];
-  
-  const Product = ()=>{
-    const productItem=productsArr.map((ele)=>
-        <ProductItem 
-        key={ele.id}
-        id={ele.id}
-        title={ele.title}
-        price={ele.price}
-        url={ele.imageUrl}
-        quantity={ele.quantity}/>
-    )
+const Product = () => {
+  const productItem = productsArr.map((ele) => (
+    <ProductItem
+      key={ele.key}
+      id={ele.id}
+      title={ele.title}
+      price={ele.price}
+      url={ele.imageUrl}
+      quantity={ele.quantity}
+    />
+  ));
   return (
-    <section className={classes.product}>
-       {/* <h1> Music </h1> */}
-      <ul>
-         {productItem} 
-      </ul>
+    <section className={classes.section}>
+      <div>
+        <h1> Music </h1>
+      </div>
+      <ul className={classes.list}>{productItem}</ul>
     </section>
-  )
-
-  
-}
+  );
+};
 
 export default Product;

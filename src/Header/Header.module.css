@@ -1,14 +1,13 @@
 .testHeader {
-    background: black  left top;
+  background: azure;;
     height: 50px;
-    font-family: Arial, Helvetica, sans-serif;
-    
+    font-family: emoji;
+    font-weight: bolder;
     margin: 0 auto 18px;
     overflow: hidden;
     text-align: center;
     word-spacing: 10px;
-    font-size: xlarge;
-    font-weight: 500;
+    font-size: 120%;
     color: white;
     position: fixed;
     /* top: 0;

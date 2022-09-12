@@ -1,16 +1,16 @@
 import React from 'react'
-// import { useContext } from 'react';
+import { useContext } from 'react';
 import { useRef } from 'react'
-import { useHistory } from 'react-router-dom';
-// import CartProvider from '../Store/Cart-Provider';
-import classes from "./ContactUs.module.css"
+import {useHistory } from 'react-router-dom';
+import CartContext from '../Store/Cart-Context';
+import classes from "./Login.module.css"
 
 function Login() {
     const history= useHistory();
 let emailInputRef=useRef('');
 let passwordInputRef=useRef('');
 
-// const loginCtx=useContext(CartProvider)
+const loginCtx=useContext(CartContext)
 
 const submitHandler=(e)=>{
     e.preventDefault();
@@ -42,7 +42,9 @@ const submitHandler=(e)=>{
         }
     }).then((data)=>{
         console.log(data.idToken)
-        // loginCtx.login(data.idToken)
+        console.log(loginCtx)
+        loginCtx.login(data.idToken)
+        
         history.replace('/store')
     })
     .catch((err)=>{
@@ -88,20 +90,29 @@ const submitHandler=(e)=>{
 // }
 
   return (
+    <>
+   
+    <section className={classes.auth}>
     <div className={classes.wrapper}>
       <form onSubmit={submitHandler} className={classes.form}>
-      <div className={classes.title}>Login</div>
+      <div><h2>Login</h2></div>
+       <div className={classes.control}>
         <label>Email</label>
         <input type="text" ref={emailInputRef} placeholder="test@gmail.com"/>
+        </div>
         <br/>
-        <br/>
+        <div className={classes.control}>
         <label>Password</label>
         <input type="text" ref={passwordInputRef} placeholder="222222"/>
+        </div>
         <br/>
-        <br/>
+        <div className={classes.actions}>
         <button>Login</button>
+        </div>
       </form>
     </div>
+    </section>
+    </>
   )
 }
 

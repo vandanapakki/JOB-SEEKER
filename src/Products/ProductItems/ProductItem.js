@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom';
 import CartContext from '../../Store/Cart-Context';
-import classes from './ProductItem.module.css'
+// import classes from './ProductItem.module.css'
 
 export default function ProductItem(props) {
    
@@ -23,19 +23,35 @@ export default function ProductItem(props) {
     }
     
     cartCtx.addItem(data)
+
+    fetch("https://crudcrud.com/api/dcd71b8b72314a429861cdb8d3831f5c/carttestgmailcom",{
+      method:"POST",
+      body:JSON.stringify(data),
+      headers:{
+        "Content-Type":"application/json"
+      }
+    }).then((res)=>{
+      if(res.ok){
+        return res.json()
+      }
+    }).then((data)=>{
+      console.log(data)
+      }).catch((err)=>{
+        alert(err)
+      })
     
  }
   return (
 
     <form onSubmit={addItemToCart}>    
-    <div className={classes.product}>
+    <div >
       <Link to='/productdetails/:productName'>
       <h2>{props.title}</h2>  
-      <div className={classes.product}>
+      <div >
            <img src={props.url} alt='img'></img>
        </div>
        </Link>
-      <div className={classes['product-price']}>
+      <div >
         ${props.price}
       </div>         
          <button >Add to Cart</button>         

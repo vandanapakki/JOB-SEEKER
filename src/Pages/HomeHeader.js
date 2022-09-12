@@ -3,11 +3,11 @@ import classes from './HomeHeader.module.css'
 export default function HomeHeader() {
   return (
     <>
-    <section className={classes.h2}>
-        The Generics        
-       <span> 
-         <h6>Get Our Latest Album</h6>
-       </span>     
+    <section className={classes.banner}>
+        <h2>The Generics</h2>        
+       <div className={classes.bannerbutton}> 
+         <button>Get Our Latest Album</button>
+       </div>     
     </section>
    </>
   )
