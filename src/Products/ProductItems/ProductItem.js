@@ -24,7 +24,7 @@ export default function ProductItem(props) {
     
     cartCtx.addItem(data)
 
-    fetch("https://crudcrud.com/api/dcd71b8b72314a429861cdb8d3831f5c/carttestgmailcom",{
+    fetch("https://crudcrud.com/api/2e4ead4efc5345aea92e4f7d046337de/carttestgmailcom",{
       method:"POST",
       body:JSON.stringify(data),
       headers:{

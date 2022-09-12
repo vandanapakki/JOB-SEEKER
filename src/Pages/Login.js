@@ -41,57 +41,18 @@ const submitHandler=(e)=>{
             })
         }
     }).then((data)=>{
-        console.log(data.idToken)
-        console.log(loginCtx)
+        // console.log(data.idToken)
+        // console.log(loginCtx)
         loginCtx.login(data.idToken)
+        loginCtx.isLoggedin=true;
         
-        history.replace('/store')
+        history.replace('/productpage')
     })
     .catch((err)=>{
         alert(err.message)
     })
 }
-// const submitHandler=async (e)=>{
-//     e.preventDefault();
-
-//     const enteredEmail= emailInputRef.current.value;
-//     const enteredPassword= passwordInputRef.current.value;
-//     // console.log(enteredEmail,enteredPassword)
-// try{
-//     const response= await fetch ("https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCCXzhbX-HRm-ujGbrRU7-ynAlPT4t8HTY",{
-//         method:"POST",   
-//         body: JSON.stringify({
-//              email: enteredEmail,
-//              password: enteredPassword,
-//              returnSecureToken: true,
-//          }),
-//          headers: {
-//             "Content-Type":"application/json"
-//          }
-//     })
-
-//     const data= await response.json()
-// }
-//     then((res)=>{
-//         if(res.ok){
-//             return res.json();
-//         } else {
-//             return res.json().then((data)=>{
-//                 let errorMessage="Entered wrong details"
-//                 throw new Error(errorMessage)
-//             })
-//         }
-//     }).then((data)=>{
-//         history.replace('/store')
-//     })
-//     .catch((err)=>{
-//         alert(err.message)
-//     })
-// }
-
   return (
-    <>
-   
     <section className={classes.auth}>
     <div className={classes.wrapper}>
       <form onSubmit={submitHandler} className={classes.form}>
@@ -112,8 +73,7 @@ const submitHandler=(e)=>{
       </form>
     </div>
     </section>
-    </>
-  )
+    )
 }
 
 export default Login

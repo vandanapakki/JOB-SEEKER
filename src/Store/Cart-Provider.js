@@ -53,13 +53,13 @@ const CartProvider = (props) => {
 
   const userIsLoggedIn = !!token;
   
-  let storedToken= localStorage.getItem("token")
-  setToken(storedToken);
+  
+  // setToken(storedToken);
   const loginHandler = (token) => {
-    
-    localStorage.setItem("token", token);
-   
     setToken(token);
+    localStorage.setItem("token", token);
+    localStorage.getItem("token")
+    
     console.log("inside provider",token);
     setIsLoggedin(true)
     
@@ -70,7 +70,7 @@ const CartProvider = (props) => {
     addItem: addItemToCartHandler,
     removeItem: removeItemFromCartHandler,
     token: userIsLoggedIn,
-    isLoggedin: true,
+    isLoggedin: isLoggedin,
     login: loginHandler
   };
 

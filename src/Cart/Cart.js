@@ -10,6 +10,7 @@ import { useState } from "react";
 const Cart = (props) => {
   const [products,setProducts]=useState([])
   const[error,setError]=useState(null)
+  const[data,setData]=useState(false)
   let total = 0;
   const cartcntx = useContext(CartContext);
   
@@ -30,42 +31,48 @@ const Cart = (props) => {
   });
   total = `$ ${total.toFixed(2)}`;
 
-  const cartItems = cartcntx.items.map((item) => (
-    <CartItem
-      key={item.key}
-      title={item.title}
-      id={item.id}
-      price={item.price}
-      iurl={item.imageUrl}
-      quantity={item.quantity}
-       />
-  ));
+  // const cartItems = cartcntx.items.map((item) => (
+  //   <CartItem
+  //     key={item.key}
+  //     title={item.title}
+  //     id={item.id}
+  //     price={item.price}
+  //     iurl={item.imageUrl}
+  //     quantity={item.quantity}
+  //      />
+  // ));
 
   useEffect(()=>{
     getProductData();
-  },[getProductData])
+    setData(true);
+    console.log("ABhi")
+  },[])
   // let cartItems=[];
   async function getProductData (){
     setError(null)
     try{
-    const response= await fetch("https://crudcrud.com/api/dcd71b8b72314a429861cdb8d3831f5c/carttestgmailcom");
+    const response= await fetch("https://crudcrud.com/api/2e4ead4efc5345aea92e4f7d046337de/carttestgmailcom");
     if(!response.ok){
       throw new Error("Something went wrong....")
     }
     const data= await response.json();
     console.log(data)
-  //   const cartItem=[];
-  //   for(const key in data){
-  //   cartItem.push({
-  //     title: data[key].title,
-  //     price: data[key].price,
-  //     // amount: data[1].amount,
-  //     id: data[key].id,
-  //     url: data[key].url,
-  //   });
+    const cartItem=[1,2,3,4,5];
+    // for(const key in data){
+    // cartItem.push({
+    //   title: data[key].title,
+    //   price: data[key].price,
+    //   // amount: data[1].amount,
+    //   id: data[key].id,
+    //   url: data[key].url,
+    // });
   // }
-  // setProducts(cartItem)
-  } catch(err){
+  
+  setProducts(cartItem)
+  cartcntx.items=products;
+  console.log("cart",products)
+  console.log("cart Item",cartcntx.items)
+   } catch(err){
     setError(err.message)
     console.log(err.message)
   }
@@ -92,7 +99,18 @@ const Cart = (props) => {
       <div>
         <button onClick={props.onClose}>Close</button>
       </div>
-      {cartItems}
+      {data && 
+      
+      cartcntx.items.map((item) => (
+     <CartItem
+      key={item.key}
+      title={item.title}
+      id={item.id}
+      price={item.price}
+      iurl={item.imageUrl}
+      quantity={item.quantity}
+       />
+      ))}
        <div>
         <span>Total Amount</span>
         {total}
