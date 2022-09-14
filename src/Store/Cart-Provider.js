@@ -69,7 +69,7 @@ const CartProvider = (props) => {
     items: cartState.items,
     addItem: addItemToCartHandler,
     removeItem: removeItemFromCartHandler,
-    token: userIsLoggedIn,
+    token: userIsLoggedIn,  
     isLoggedin: isLoggedin,
     login: loginHandler
   };

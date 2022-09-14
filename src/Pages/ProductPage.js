@@ -6,7 +6,7 @@ import Header2 from "../Header/Header2";
 import Product from "../Products/Product";
 import CartProvider from "../Store/Cart-Provider";
 
-const ProductPage = (props) => {
+const ProductPage = () => {
   const [showCart, setShowCart] = useState(false);
 
   const showCartHandler = () => {

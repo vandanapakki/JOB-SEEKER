@@ -5,118 +5,81 @@ import { useContext } from "react";
 import Modal from "../UI/Modal";
 import { useEffect } from "react";
 import { useState } from "react";
-
+import { useCallback } from "react";
 
 const Cart = (props) => {
-  const [products,setProducts]=useState([])
-  const[error,setError]=useState(null)
-  const[data,setData]=useState(false)
-  let total = 0;
+  const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  // let total = 0;
   const cartcntx = useContext(CartContext);
-  
- const length= cartcntx.items.length
-   const purchaseItemHandler = (item) => {
+
+  const length = products.length;
+  console.log("length",length)
+  console.log("cartcntx", cartcntx.length)
+  const purchaseItemHandler = (item) => {
     if (item.quantity < 1) {
-         alert("You have Nothing in Cart , Add some products to purchase !");
+      alert("You have Nothing in Cart , Add some products to purchase !");
     } else {
-       
-        alert("Thanks for purchase");
+      alert("Thanks for purchase");
+
     }
   };
+let total=0
 
-  
-  
-  cartcntx.items.forEach((item) => {
-    total = total + Number(item.price) * Number(item.quantity);
+  products.forEach((item) => {
+      total = total + Number(item.price) * Number(item.quantity);
   });
   total = `$ ${total.toFixed(2)}`;
 
-  // const cartItems = cartcntx.items.map((item) => (
-  //   <CartItem
-  //     key={item.key}
-  //     title={item.title}
-  //     id={item.id}
-  //     price={item.price}
-  //     iurl={item.imageUrl}
-  //     quantity={item.quantity}
-  //      />
-  // ));
-
-  useEffect(()=>{
+  useEffect(() => {
     getProductData();
-    setData(true);
-    console.log("ABhi")
-  },[])
-  // let cartItems=[];
-  async function getProductData (){
-    setError(null)
-    try{
-    const response= await fetch("https://crudcrud.com/api/2e4ead4efc5345aea92e4f7d046337de/carttestgmailcom");
-    if(!response.ok){
-      throw new Error("Something went wrong....")
+  }, []);
+
+  const getProductData = useCallback(async () => {
+    setIsLoading(true);
+    try {
+      const response = await fetch(
+        "https://crudcrud.com/api/b6075f4ad6c04df5a889099e74d66970/carttestgmailcom"
+      );
+      if (!response.ok) {
+        throw new Error("Something went wrong....");
+      }
+
+      const data = await response.json();
+       setProducts(data);
+      
+
+    } catch (err) {
+      console.log(err.message);
     }
-    const data= await response.json();
-    console.log(data)
-    const cartItem=[1,2,3,4,5];
-    // for(const key in data){
-    // cartItem.push({
-    //   title: data[key].title,
-    //   price: data[key].price,
-    //   // amount: data[1].amount,
-    //   id: data[key].id,
-    //   url: data[key].url,
-    // });
-  // }
-  
-  setProducts(cartItem)
-  cartcntx.items=products;
-  console.log("cart",products)
-  console.log("cart Item",cartcntx.items)
-   } catch(err){
-    setError(err.message)
-    console.log(err.message)
-  }
-  }
-  
+
+    setIsLoading(false);
+  }, []);
  
-  // .then((data)=>{
-  //   console.log("get data",data)
-  //   const cartProduct=[];
-  //   for(const key in data){
-  //     cartProduct.push({
-  //       id:key,
-  //       title:data[key].title,
-  //       price:data[key].price,
-  //       amount:data[key].amount
-  //     })
-  //   }
-   
-  // }).catch(err=>{
-  //   console.log(err)
-  // })
+
   return (
     <Modal onClose={props.onClose}>
       <div>
         <button onClick={props.onClose}>Close</button>
       </div>
-      {data && 
-      
-      cartcntx.items.map((item) => (
-     <CartItem
-      key={item.key}
-      title={item.title}
-      id={item.id}
-      price={item.price}
-      iurl={item.imageUrl}
-      quantity={item.quantity}
-       />
+      {products.map((item) => (
+        <CartItem
+          key={item.key}
+          title={item.title}
+          _id={item._id}
+          price={item.price}
+          url={item.url}
+          quantity={item.quantity}
+        />
       ))}
-       <div>
-        <span>Total Amount</span>
+      <div>
+        <span>Total Amount: </span>
         {total}
       </div>
 
       {length && <button onClick={purchaseItemHandler}>Purchase</button>}
+      
     </Modal>
   );
 };

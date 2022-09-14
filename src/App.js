@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import Header from "./Header/Header";
 import "./App.css";
-import Product from "./Products/Product";
 import Footer from "./Footer/Footer";
 import Header2 from "./Header/Header2";
 import { Redirect, Route, Switch } from "react-router-dom";
@@ -17,9 +16,8 @@ import CartContext from "./Store/Cart-Context";
 function App() {
   const cartCtx = useContext(CartContext);
 
-   return (
+  return (
     <>
-      
       <Switch>
         <Route path="/about">
           <About />
@@ -33,15 +31,20 @@ function App() {
         <Route path="/productdetails/:productName">
           <ProductDetails />
         </Route>
-        {cartCtx.isLoggedin ? 
-        <Route path="/productpage">          
-          <ProductPage />
-        </Route>: <Login/>}
-          {!cartCtx.isLoggedin && <Route path="/login">
-            <Header/>
+        {cartCtx.isLoggedin ? (
+          <Route path="/productpage">
+            <ProductPage />
+          </Route>
+        ) : (
+          <Login />
+        )}
+        {!cartCtx.isLoggedin && (
+          <Route path="/login">
+            <Header />
             <Header2 />
             <Login />
-          </Route>}
+          </Route>
+        )}
         <Route path="*">
           <Redirect to="/" />
         </Route>
