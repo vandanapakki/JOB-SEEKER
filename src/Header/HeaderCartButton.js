@@ -1,6 +1,5 @@
 import React  from 'react'
-import { useContext } from 'react';
-import CartContext from '../Store/Cart-Context';
+
 
 
 // import CartIcon from '../Cart/CartIcon'
@@ -10,11 +9,9 @@ import classes from './HeaderCartButton.module.css';
 export default function HeaderCartButton(props) {
 
 
-    const cartLength=useContext(CartContext)
+   
 
-    console.log("cartt",cartLength.length )
-
-//     const cartctx=useContext(CartContext)
+ 
     
 //     let quantity=cartctx.items.reduce((curr,item)=>{
 //         return curr+item.quantity

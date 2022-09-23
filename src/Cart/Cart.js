@@ -1,34 +1,26 @@
-import React from "react";
+import React, { useContext } from "react";
 import CartItem from "./CartItem";
-import CartContext from "../Store/Cart-Context";
-import { useContext } from "react";
 import Modal from "../UI/Modal";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useCallback } from "react";
+import CartContext from "../Store/Cart-Context";
 
 const Cart = (props) => {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-
-  // let total = 0;
   const cartcntx = useContext(CartContext);
-
   const length = products.length;
-  console.log("length",length)
-  console.log("cartcntx", cartcntx.length)
-  const purchaseItemHandler = (item) => {
-    if (item.quantity < 1) {
-      alert("You have Nothing in Cart , Add some products to purchase !");
-    } else {
-      alert("Thanks for purchase");
-
-    }
+  
+  const purchaseItemHandler = () => {
+    alert("Thanks for shopping item will be delivered soon.....");
+   
   };
-let total=0
+
+  let total = 0;
 
   products.forEach((item) => {
-      total = total + Number(item.price) * Number(item.quantity);
+    total = total + Number(item.price) * Number(item.quantity);
   });
   total = `$ ${total.toFixed(2)}`;
 
@@ -40,23 +32,29 @@ let total=0
     setIsLoading(true);
     try {
       const response = await fetch(
-        "https://crudcrud.com/api/b6075f4ad6c04df5a889099e74d66970/carttestgmailcom"
+        "https://crudcrud.com/api/a12ad6ab1afc43e98af99a04c20a4b73/carttestgmailcom"
       );
       if (!response.ok) {
         throw new Error("Something went wrong....");
       }
 
       const data = await response.json();
-       setProducts(data);
-      
-
+      setProducts(data);
     } catch (err) {
       console.log(err.message);
     }
 
     setIsLoading(false);
   }, []);
- 
+  console.log("cartitem",cartcntx.items)
+
+//   const removeItemHandler=(item)=>{
+//     if(item.length>1){
+//     cartcntx.addItem({...item,quantity:-1})
+//     }
+//     else
+//     cartcntx.removeItem(item)
+// }
 
   return (
     <Modal onClose={props.onClose}>
@@ -65,21 +63,21 @@ let total=0
       </div>
       {products.map((item) => (
         <CartItem
-          key={item.key}
+          key={item.id}
           title={item.title}
           _id={item._id}
           price={item.price}
           url={item.url}
+          id={item.id}
           quantity={item.quantity}
-        />
+           />
       ))}
       <div>
-        <span>Total Amount: </span>
-        {total}
+        <products>Total Amount: {total}</products>
+        
       </div>
 
-      {length && <button onClick={purchaseItemHandler}>Purchase</button>}
-      
+      {<button onClick={purchaseItemHandler}>Purchase</button>}
     </Modal>
   );
 };

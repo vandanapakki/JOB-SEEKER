@@ -58,6 +58,7 @@ const Product = () => {
       title={ele.title}
       price={ele.price}
       url={ele.imageUrl}
+      id={ele.id}
       quantity={ele.quantity}
     />
   ));

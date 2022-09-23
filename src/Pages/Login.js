@@ -2,6 +2,7 @@ import React from "react";
 import { useContext } from "react";
 import { useRef } from "react";
 import { useHistory } from "react-router-dom";
+import Header from "../Header/Header";
 import CartContext from "../Store/Cart-Context";
 import classes from "./Login.module.css";
 
@@ -54,6 +55,8 @@ function Login() {
       });
   };
   return (
+    <>
+    <Header/>
     <section className={classes.auth}>
       <div className={classes.wrapper}>
         <form onSubmit={submitHandler} className={classes.form}>
@@ -80,6 +83,7 @@ function Login() {
         </form>
       </div>
     </section>
+    </>
   );
 }
 

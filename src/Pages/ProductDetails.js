@@ -4,13 +4,14 @@ import Header from "../Header/Header";
 import Header2 from "../Header/Header2";
 import classes from "./ProductDetails.module.css"
 function ProductDetails() {
-  const { params } = useParams();
+  const  params  = useParams();
 
   return (
     <div>
       <Header/>
       <Header2/>
-      <h1 className={classes.title}>{params}Product Details</h1>
+      <h1 className={classes.title}>Product Details</h1>
+      <h1>{params.productName}</h1>
       <div className={classes.details}>
       <img
         src="https://images.pexels.com/photos/1616403/pexels-photo-1616403.jpeg?auto=compress&cs=tinysrgb&w=600"

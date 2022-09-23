@@ -12,7 +12,7 @@ function Header(props) {
         
         <ul className={classes.testHeader}>
               
-               <NavLink activeClassName={classes.active} to='/'> Home </NavLink>            
+               <NavLink activeClassName={classes.active} to='/home'> Home </NavLink>            
                <NavLink activeClassName={classes.active} to='/productpage'>Store</NavLink> 
                <NavLink activeClassName={classes.active} to='/about'>About</NavLink> 
                <NavLink activeClassName={classes.active} to='/login'>Login</NavLink>
