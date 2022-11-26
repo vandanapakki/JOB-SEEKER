@@ -1,5 +1,5 @@
 .footer {
-    background: skyblue  left top;
+    background-color: azure;
     height: 117px;
     font-family: Arial, Helvetica, sans-serif;
     width: auto;
@@ -12,5 +12,8 @@
     color: black;
 }
 .logo {
+    
 text-align: right;
+
+
 }

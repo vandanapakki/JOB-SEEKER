@@ -14,3 +14,38 @@
     padding: 10px;
     margin: 30px;
 }
+:root {
+    --white: #ffffff;
+    --padding: 1rem 4rem 1rem 4rem;
+  }
+  
+  .containerbutton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    cursor: pointer;
+    padding: var(--padding);
+    font-size: 16px;
+    border-radius: 8px;
+    
+  }
+  
+  button[type="button"]#button {
+    
+    border: none;
+    background-image: linear-gradient(to right bottom, #1424c4, #3e26cb, #5829d2, #6f2cd9, #832fe0);
+    color: var(--white);
+     
+  }
+  
+  button[type="button"]:hover {
+    background-image: linear-gradient(to right bottom, #832fe0, #732fe3, #612fe6, #4930e9, #1f31ec);
+  }
+  
+  
+  
+  .pure-button-accent {
+    color: white;
+    background: #FF5E45;
+  }

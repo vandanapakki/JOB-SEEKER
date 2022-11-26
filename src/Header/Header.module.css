@@ -1,15 +1,16 @@
 .testHeader {
-  background: azure;;
+  /* background: azure;; */
+   margin-top: 1%;
     height: 50px;
     font-family: emoji;
     font-weight: bolder;
-    margin: 0 auto 18px;
+    /* margin: 0 auto 18px; */
     overflow: hidden;
     text-align: center;
     word-spacing: 10px;
     font-size: 120%;
     color: white;
-    position: fixed;
+    /* position: fixed; */
     /* top: 0;
     left: 0; */
     width: 100%;
@@ -18,8 +19,28 @@
     justify-content: space-around;
     align-items: center;
     padding: 0 0%;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25); */
 
+}
+
+.base12{
+  /* margin-top: 5%; */
+  color:blue;
+  font-weight:bold;
+  /* font-weight: 200; */
+  font-size: 1.5rem;
+  line-height: 1rem;
+  margin-bottom: 1.8rem;
+  font-family: "Montserrat";
+  transition: background-color 0.3s;
+ 
+}
+
+.base12:hover{
+  transform: scale(1.2, 1.2);
+      
+  
+ 
 }
 
 .shoppingCart{

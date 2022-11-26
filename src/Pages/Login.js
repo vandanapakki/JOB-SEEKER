@@ -21,7 +21,7 @@ function Login() {
     
 
     fetch(
-      "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCCXzhbX-HRm-ujGbrRU7-ynAlPT4t8HTY",
+      "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCma7WhluyVrh17gHDkqbJorzU2O1o_k24",
       {
         method: "POST",
         body: JSON.stringify({
@@ -48,7 +48,7 @@ function Login() {
         loginCtx.login(data.idToken);
         loginCtx.isLoggedin = true;
 
-        history.replace("/productpage");
+        history.replace("/contact");
       })
       .catch((err) => {
         alert(err.message);

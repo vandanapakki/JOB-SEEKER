@@ -1,37 +1,34 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom';
-import classes from './Header.module.css';
-import HeaderCartButton from './HeaderCartButton';
+import React from "react";
+import { NavLink } from "react-router-dom";
+import classes from "./Header.module.css";
 
 function Header(props) {
-    
-   
   return (
-    
-    <nav >
-        
-        <ul className={classes.testHeader}>
-              
-               <NavLink activeClassName={classes.active} to='/home'> Home </NavLink>            
-               <NavLink activeClassName={classes.active} to='/productpage'>Store</NavLink> 
-               <NavLink activeClassName={classes.active} to='/about'>About</NavLink> 
-               <NavLink activeClassName={classes.active} to='/login'>Login</NavLink>
-               <NavLink activeClassName={classes.active} to='/contact'>Contact</NavLink>
-               
-           <div className={classes.shoppingCart}>
-             <HeaderCartButton onClick={props.onShowCart}/>
-           </div>
-        </ul>
-        <div>
-        <br/>
-        <br/>
-        <br/>
-        </div>
-        
+    <nav>
+      <ul className={classes.testHeader}>
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3Ui1V3kwOkY_oRoSZgRBCLXDieE_Dqfce0g&usqp=CAU"
+          alt="job"
+          width="25% "
+        />
+        <NavLink className={classes.base12} to="/home">
+         Job Seeker
+        </NavLink>
+        <NavLink className={classes.base12} to="/about">
+          Company
+        </NavLink>
+        <NavLink className={classes.base12} to="/contact">
+          Admin
+        </NavLink>
+        <NavLink activeClassName={classes.active} to="/productpage"></NavLink>
+        <NavLink className={classes.base12} to="/login"></NavLink>
+      </ul>
+      <div>
+        <br />
+        <br />
+        <br />
+      </div>
     </nav>
-
-    
-    
-  )
+  );
 }
 export default Header;
