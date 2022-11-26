@@ -198,7 +198,7 @@ function Home() {
             }else{
               return value.position.toLowerCase().includes(text.toLowerCase())
             }
-          }). map((user) => (
+          }).map((user) => (
             <li className={classes.items}>
               <span>{user.company}</span>
               <span>{user.position}</span>

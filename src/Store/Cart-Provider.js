@@ -28,7 +28,7 @@ const CartProvider = (props) => {
     let newItemArray = [...items];
     console.log("id", id);
     const index=newItemArray.findIndex((element) => {
-       return element.id==id;
+       return element.id===id;
 
         // console.log("eleid",element.id)
        
